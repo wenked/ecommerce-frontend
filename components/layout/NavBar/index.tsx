@@ -66,14 +66,31 @@ const NavBar: React.FC = () => {
 								{button ? (
 									<Link href='/signup' passHref>
 										<NavBtnLink>
-											<Button primary>SIGN UP</Button>
+											<Button primary>Sign up</Button>
 										</NavBtnLink>
 									</Link>
 								) : (
 									<Link href='/signup' passHref>
 										<NavBtnLink>
 											<Button primary fontBig>
-												SIGN UP
+												Sign up
+											</Button>
+										</NavBtnLink>
+									</Link>
+								)}
+							</NavItemBtn>
+							<NavItemBtn>
+								{button ? (
+									<Link href='/login' passHref>
+										<NavBtnLink>
+											<Button primary>Login</Button>
+										</NavBtnLink>
+									</Link>
+								) : (
+									<Link href='/login' passHref>
+										<NavBtnLink>
+											<Button primary fontBig>
+												Login
 											</Button>
 										</NavBtnLink>
 									</Link>

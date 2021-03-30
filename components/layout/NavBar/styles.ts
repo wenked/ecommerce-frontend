@@ -8,7 +8,8 @@ interface NavMenuProps {
 }
 
 export const Nav = styled.nav`
-	background: #101522;
+	background: #006989;
+	color: #eaebed;
 	height: 80px;
 	display: flex;
 	justify-content: center;
@@ -23,10 +24,11 @@ export const NavBarContainer = styled(Container)`
 	display: flex;
 	justify-content: space-between;
 	height: 80px;
+	max-width: 100%;
 `;
 
 export const NavLogo = styled.a`
-	color: #fff;
+	color: #eaebed;
 	justify-self: flex-start;
 	cursor: pointer;
 	text-decoration: none;
@@ -69,7 +71,7 @@ export const NavMenu = styled.ul<NavMenuProps>`
 		left: ${({ click }) => (click ? 0 : '-100%')};
 		opacity: 1;
 		transition: all 0.5s ease;
-		background: #101522;
+		background: #006989;
 	}
 `;
 
@@ -78,7 +80,7 @@ export const NavItem = styled.li`
 	border-bottom: 2px solid transparent;
 
 	&:hover {
-		border-bottom: 2px solid #4b59f7;
+		border-bottom: 2px solid #01a7c2;
 	}
 
 	@media (max-width: 960px) {
@@ -97,6 +99,9 @@ export const NavLinks = styled.a`
 	text-decoration: none;
 	padding: 0.5rem 1rem;
 	height: 100%;
+	&:hover {
+		color: #a3bac3;
+	}
 
 	@media (max-width: 960px) {
 		text-align: center;
@@ -105,7 +110,7 @@ export const NavLinks = styled.a`
 		display: table;
 
 		&:hover {
-			color: #4b59f7;
+			color: #a3bac3;
 			transition: all 0.3s ease;
 		}
 	}
