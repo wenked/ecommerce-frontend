@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
+interface PasswordErrorProps {
+	passwordError: boolean;
+}
+
 export const RegisterBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid black;
 	height: 60rem;
 	flex-direction: column;
 	flex: 1;
 	overflow: hidden;
 	margin: 2rem;
 	@media (min-width: 960px) {
-		height: 60rem;
-		border: 1px solid red;
+		height: 40rem;
 		flex-direction: row;
 	}
 `;
@@ -32,6 +34,9 @@ export const Input = styled.input`
 		border-bottom: 2px solid #006989;
 		padding-bottom: 6px;
 	}
+	@media (min-width: 960px) {
+		width: 30rem;
+	}
 `;
 
 export const Label = styled.label`
@@ -39,7 +44,9 @@ export const Label = styled.label`
 	justify-content: center;
 	align-items: center;
 	font-weight: 600;
+	font-size: 20px;
 	margin: 2rem;
+	color: #006989;
 `;
 
 export const InputsContainer = styled.div`
@@ -49,4 +56,14 @@ export const InputsContainer = styled.div`
 export const ButtonContainer = styled.div`
 	display: flex;
 	justify-content: center;
+	@media (min-width: 960px) {
+		margin: 0 auto;
+		width: 50%;
+	}
+`;
+
+export const ErrorContainer = styled.div<PasswordErrorProps>`
+	color: red;
+	padding: 1rem;
+	display: ${({ passwordError }) => (passwordError ? 'flex' : 'none')};
 `;
