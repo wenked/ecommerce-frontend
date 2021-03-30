@@ -4,6 +4,7 @@ import React, { FormEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
 	ButtonContainer,
+	DropdownBlock,
 	ErrorContainer,
 	Form,
 	Input,
@@ -52,14 +53,9 @@ const SingUp: React.FC = () => {
 
 			console.log(res);
 
-			router.push('/');
+			router.push('/signup/registercompleted');
 		}
 	};
-
-	useEffect(() => {
-		console.log(csc.getStatesOfCountry('BR'));
-		console.log(csc.getCitiesOfState('BR', 'PR'));
-	}, []);
 
 	return (
 		<Container>
@@ -69,6 +65,7 @@ const SingUp: React.FC = () => {
 					<InputsContainer>
 						<Input
 							required
+							customSize='md'
 							type='text'
 							value={name}
 							placeholder='Name'
@@ -76,6 +73,7 @@ const SingUp: React.FC = () => {
 						/>
 						<Input
 							required
+							customSize='md'
 							type='text'
 							value={lastname}
 							placeholder='Last Name'
@@ -83,20 +81,24 @@ const SingUp: React.FC = () => {
 						/>
 						<Input
 							required
-							type='date'
-							value={borndate}
-							placeholder='Born Date'
-							onChange={(e) => setBornDate(e.target.value)}
-						/>
-						<Input
-							required
+							customSize='md'
 							type='text'
 							value={email}
 							placeholder='Email'
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<Input
+							customSize='small'
 							required
+							type='date'
+							value={borndate}
+							placeholder='Born Date'
+							onChange={(e) => setBornDate(e.target.value)}
+						/>
+
+						<Input
+							required
+							customSize='md'
 							type='password'
 							value={password}
 							placeholder='Password'
@@ -104,31 +106,27 @@ const SingUp: React.FC = () => {
 						/>
 						<Input
 							required
+							customSize='md'
 							type='password'
 							value={checkPasssword}
 							placeholder='Confirm password'
 							onChange={(e) => setCheckPasssword(e.target.value)}
 						/>
-
-						<Dropdown
-							options={csc.getStatesOfCountry('BR').map((a) => a.isoCode)}
-							setOption={setState}
-							placeholder='State'
-						/>
-						<Dropdown
-							options={csc.getCitiesOfState('BR', state).map((b) => b.name)}
-							setOption={setCity}
-							placeholder='City'
-						/>
+						<DropdownBlock>
+							<Dropdown
+								options={csc.getStatesOfCountry('BR').map((a) => a.isoCode)}
+								setOption={setState}
+								placeholder='State'
+							/>
+							<Dropdown
+								options={csc.getCitiesOfState('BR', state).map((b) => b.name)}
+								setOption={setCity}
+								placeholder='City'
+							/>
+						</DropdownBlock>
 						<Input
 							required
-							type='text'
-							value={city}
-							placeholder='City'
-							onChange={(e) => setCity(e.target.value)}
-						/>
-						<Input
-							required
+							customSize='md'
 							type='text'
 							value={district}
 							placeholder='District'
@@ -136,6 +134,7 @@ const SingUp: React.FC = () => {
 						/>
 						<Input
 							required
+							customSize='md'
 							type='text'
 							value={street}
 							placeholder='Street'
@@ -143,6 +142,7 @@ const SingUp: React.FC = () => {
 						/>
 						<Input
 							required
+							customSize='small'
 							type='number'
 							value={housenumber}
 							placeholder='House Number'
@@ -150,6 +150,7 @@ const SingUp: React.FC = () => {
 						/>
 						<Input
 							required
+							customSize='small'
 							type='number'
 							value={postalcode}
 							placeholder='Postal Code'
@@ -157,6 +158,7 @@ const SingUp: React.FC = () => {
 						/>
 						<Input
 							required
+							customSize='md'
 							type='text'
 							value={imgurl}
 							placeholder='Img Url'
