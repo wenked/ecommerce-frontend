@@ -1,6 +1,6 @@
 import { Button, Container } from '@styles/global';
 import axios from 'axios';
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
 	ButtonContainer,
@@ -11,6 +11,8 @@ import {
 	Label,
 	RegisterBox,
 } from './styles';
+import csc from 'country-state-city';
+import Dropdown from '@components/layout/Dropdown';
 
 const SingUp: React.FC = () => {
 	const router = useRouter();
@@ -54,6 +56,11 @@ const SingUp: React.FC = () => {
 		}
 	};
 
+	useEffect(() => {
+		console.log(csc.getStatesOfCountry('BR'));
+		console.log(csc.getCitiesOfState('BR', 'PR'));
+	}, []);
+
 	return (
 		<Container>
 			<RegisterBox>
@@ -81,7 +88,13 @@ const SingUp: React.FC = () => {
 							placeholder='Born Date'
 							onChange={(e) => setBornDate(e.target.value)}
 						/>
-						<Input required type='text' value={email} placeholder='Email' />
+						<Input
+							required
+							type='text'
+							value={email}
+							placeholder='Email'
+							onChange={(e) => setEmail(e.target.value)}
+						/>
 						<Input
 							required
 							type='password'
@@ -96,12 +109,16 @@ const SingUp: React.FC = () => {
 							placeholder='Confirm password'
 							onChange={(e) => setCheckPasssword(e.target.value)}
 						/>
-						<Input
-							required
-							type='text'
-							value={state}
+
+						<Dropdown
+							options={csc.getStatesOfCountry('BR').map((a) => a.isoCode)}
+							setOption={setState}
 							placeholder='State'
-							onChange={(e) => setState(e.target.value)}
+						/>
+						<Dropdown
+							options={csc.getCitiesOfState('BR', state).map((b) => b.name)}
+							setOption={setCity}
+							placeholder='City'
 						/>
 						<Input
 							required
