@@ -1,4 +1,4 @@
-import { Button, Container } from '@styles/global';
+import { Button, Container, Input } from '@styles/global';
 import axios from 'axios';
 import React, { FormEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -7,7 +7,6 @@ import {
 	DropdownBlock,
 	ErrorContainer,
 	Form,
-	Input,
 	InputsContainer,
 	Label,
 	RegisterBox,

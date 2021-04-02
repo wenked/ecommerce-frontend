@@ -6,6 +6,10 @@ interface ButtonProps {
 	fontBig?: boolean;
 }
 
+interface InputProps {
+	customSize: 'big' | 'small' | 'md';
+}
+
 export default createGlobalStyle`
  * {
      margin:0;
@@ -32,8 +36,8 @@ export const Container = styled.div`
 	padding-left: 50px;
 
 	@media (max-width: 991px) {
-		padding-right: 30px;
-		padding-left: 30px;
+		padding-right: 10px;
+		padding-left: 10px;
 	}
 `;
 
@@ -56,5 +60,36 @@ export const Button = styled.button<ButtonProps>`
 
 	@media (min-width: 960px) {
 		width: 100%;
+	}
+`;
+
+export const Input = styled.input<InputProps>`
+	margin: 0.8rem;
+	padding: 0.5rem;
+	border: 0;
+	background: transparent;
+	border-bottom: 1px solid #006989;
+	border-radius: 2px;
+	font-family: 'Roboto', sans-serif;
+	width: 15rem;
+	&:focus {
+		outline: none;
+		border-bottom: 2px solid #006989;
+		padding-bottom: 6px;
+	}
+	@media (min-width: 960px) {
+		width: ${({ customSize }) => {
+			if (customSize === 'big') {
+				return '30rem';
+			}
+
+			if (customSize === 'md') {
+				return '20rem';
+			}
+
+			if (customSize === 'small') {
+				return '10rem';
+			}
+		}};
 	}
 `;

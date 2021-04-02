@@ -15,10 +15,18 @@ import {
 } from './styles';
 import { IconContext } from 'react-icons/lib';
 import { Button } from '@styles/global';
+import { useAuth } from 'context/AuthContext';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import { useQueryClient } from 'react-query';
 
 const NavBar: React.FC = () => {
 	const [click, setClick] = useState(false);
 	const [button, setButton] = useState(true);
+	const queryclient = useQueryClient();
+	const router = useRouter();
+
+	const { user, loading, error, signed } = useAuth();
 
 	const handleClick = () => setClick(!click);
 	const showButton = () => {
@@ -28,10 +36,6 @@ const NavBar: React.FC = () => {
 			setButton(true);
 		}
 	};
-
-	useEffect(() => {
-		showButton();
-	}, []);
 
 	if (typeof window !== 'undefined') {
 		window.addEventListener('resize', showButton);
@@ -62,40 +66,74 @@ const NavBar: React.FC = () => {
 									<NavLinks>Smartphones</NavLinks>
 								</Link>
 							</NavItem>
-							<NavItemBtn>
-								{button ? (
-									<Link href='/signup' passHref>
-										<NavBtnLink>
-											<Button primary>Sign up</Button>
-										</NavBtnLink>
-									</Link>
-								) : (
-									<Link href='/signup' passHref>
-										<NavBtnLink>
-											<Button primary fontBig>
-												Sign up
-											</Button>
-										</NavBtnLink>
-									</Link>
-								)}
-							</NavItemBtn>
-							<NavItemBtn>
-								{button ? (
-									<Link href='/login' passHref>
-										<NavBtnLink>
-											<Button primary>Login</Button>
-										</NavBtnLink>
-									</Link>
-								) : (
-									<Link href='/login' passHref>
-										<NavBtnLink>
-											<Button primary fontBig>
-												Login
-											</Button>
-										</NavBtnLink>
-									</Link>
-								)}
-							</NavItemBtn>
+							{signed ? (
+								<>
+									<NavItem>
+										<Link href='/profile' passHref>
+											<NavLinks>{user.firstName}</NavLinks>
+										</Link>
+									</NavItem>
+									<NavItem>
+										<NavLinks
+											style={{ cursor: 'pointer' }}
+											onClick={async () => {
+												try {
+													const res = await axios.get(
+														'http://localhost:3333/logout',
+														{
+															withCredentials: true,
+														}
+													);
+													queryclient.clear();
+													router.push('/login');
+													console.log(res.data);
+												} catch (err) {
+													console.log(err);
+													router.push('/login');
+												}
+											}}>
+											logout
+										</NavLinks>
+									</NavItem>
+								</>
+							) : (
+								<>
+									<NavItemBtn>
+										{button ? (
+											<Link href='/signup' passHref>
+												<NavBtnLink>
+													<Button primary>Sign up</Button>
+												</NavBtnLink>
+											</Link>
+										) : (
+											<Link href='/signup' passHref>
+												<NavBtnLink>
+													<Button primary fontBig>
+														Sign up
+													</Button>
+												</NavBtnLink>
+											</Link>
+										)}
+									</NavItemBtn>
+									<NavItemBtn>
+										{button ? (
+											<Link href='/login' passHref>
+												<NavBtnLink>
+													<Button primary>Login</Button>
+												</NavBtnLink>
+											</Link>
+										) : (
+											<Link href='/login' passHref>
+												<NavBtnLink>
+													<Button primary fontBig>
+														Login
+													</Button>
+												</NavBtnLink>
+											</Link>
+										)}
+									</NavItemBtn>
+								</>
+							)}
 						</NavMenu>
 					</NavBarContainer>
 				</Nav>
