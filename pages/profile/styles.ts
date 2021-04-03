@@ -24,14 +24,40 @@ export const ProfileContainer = styled.div`
 `;
 
 export const ProfileInputs = styled.div`
-	display: block;
+	display: flex;
+	flex-direction: column;
+	@media (min-width: 960px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
 `;
 
 export const ProfileLabel = styled.label`
 	color: #006989;
 	font-weight: bold;
-	font-size: 13;
+	font-size: 13px;
 	padding: 10px;
 `;
 
-export const ProfileInput = styled.div``;
+export const ProfileInput = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+export const UpdateInfoButton = styled.button`
+	border: none;
+	color: #006989;
+	font-weight: bold;
+	font-size: 12px;
+	cursor: pointer;
+	margin: 10px;
+
+	&:hover &:focus {
+		border-bottom: 1px solid #006989;
+	}
+
+	&:focus {
+		border-bottom: 1px solid #006989;
+		outline: none;
+	}
+`;

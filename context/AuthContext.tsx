@@ -15,6 +15,7 @@ export interface user {
 	district: string;
 	postalCode: number;
 	bornDate: string;
+	imgUrl: string;
 }
 
 interface AuthContextData {

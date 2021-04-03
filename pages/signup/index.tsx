@@ -47,6 +47,7 @@ const SingUp: React.FC = () => {
 				bornDate: borndate,
 				password,
 				email,
+				imgUrl: imgurl,
 				postalCode: postalcode,
 			});
 

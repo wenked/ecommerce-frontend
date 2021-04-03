@@ -8,7 +8,13 @@ export const DropdownContainer = styled.div`
 `;
 
 export const LabelContainer = styled.div`
+	color: #006989;
+	font-weight: bold;
 	padding: 10px;
+	font-size: 12px;
+	@media (min-width: 960px) {
+		font-size: 14px;
+	}
 `;
 
 export const SelectContainer = styled.div`
