@@ -2,17 +2,13 @@ import ItemForm from '@components/ItemForm';
 import AdminNav from '@components/layout/AdminNav';
 import Modal from '@components/layout/Modal';
 import { MyTitle } from '@styles/global';
-
 import axios from 'axios';
-import { useAuth } from 'context/AuthContext';
 import { useRouter } from 'next/router';
-
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { userIsAuth } from 'utils/userIsAuth';
-import { AdminContainer } from '../styles';
-import { AddItemContainer } from './styles';
+import { EditContainer, FormContainer } from './styles';
 
-const AddItem: React.FC = () => {
+const EditItem: React.FC = () => {
 	const [name, setName] = useState<string>();
 	const [description, setDescription] = useState<string>();
 	const [price, setPrice] = useState<number>();
@@ -20,37 +16,47 @@ const AddItem: React.FC = () => {
 	const [imgUrl, setImgUrl] = useState<string>();
 	const [inventory, setInventory] = useState<number>();
 	const [toggle, setToggle] = useState(false);
+	const [error, setError] = useState(false);
+	const router = useRouter();
+
+	const { id } = router.query;
 
 	userIsAuth();
-
 	const handleSubmit = async (e: FormEvent) => {
-		e.preventDefault();
 		axios.defaults.withCredentials = true;
-		const res = await axios.post('http://localhost:3333/additem', {
-			name,
-			description,
-			price,
-			category,
-			imgUrl,
-			inventory,
-		});
+		e.preventDefault();
+		try {
+			const res = await axios.post('http://localhost:3333/updateitem', {
+				id,
+				name,
+				description,
+				price,
+				category,
+				imgUrl,
+				inventory,
+			});
 
-		console.log(res.data);
-		setToggle(true);
+			console.log(res.data);
+			setToggle(true);
+		} catch (err) {
+			console.log(err);
+			setError(true);
+		}
 	};
 
 	return (
-		<AdminContainer>
+		<EditContainer>
 			<AdminNav />
 			<Modal
 				toggle={toggle}
 				setToggle={setToggle}
-				text='Item added succefully'
+				text='Item updated succefully'
 			/>
-			<MyTitle>Add Item</MyTitle>
-			<AddItemContainer>
+			<MyTitle>Edit Item</MyTitle>
+
+			<FormContainer>
 				<ItemForm
-					required
+					required={false}
 					handleSubmit={handleSubmit}
 					name={name}
 					setName={setName}
@@ -62,13 +68,13 @@ const AddItem: React.FC = () => {
 					setInventory={setInventory}
 					imgUrl={imgUrl}
 					setImgUrl={setImgUrl}
-					buttonText='+ Add item'
+					buttonText='Update Item'
 					description={description}
 					setDescription={setDescription}
 				/>
-			</AddItemContainer>
-		</AdminContainer>
+			</FormContainer>
+		</EditContainer>
 	);
 };
 
-export default AddItem;
+export default EditItem;

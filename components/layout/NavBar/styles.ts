@@ -32,7 +32,7 @@ export const NavLogo = styled.a`
 	justify-self: flex-start;
 	cursor: pointer;
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: 1.4rem;
 	display: flex;
 	align-items: center;
 `;
@@ -99,6 +99,7 @@ export const NavLinks = styled.a`
 	text-decoration: none;
 	padding: 0.5rem 1rem;
 	height: 100%;
+	font-size: 16px;
 	&:hover {
 		color: #a3bac3;
 	}

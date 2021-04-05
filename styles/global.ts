@@ -18,7 +18,7 @@ export default createGlobalStyle`
  }
 
  body {
-   background: #EAEBED;
+   background: #F7F9F9;
    font-size: 14px;
    color:black;
    font-family:'Roboto',sans-serif  
@@ -61,6 +61,11 @@ export const Button = styled.button<ButtonProps>`
 	@media (min-width: 960px) {
 		width: 100%;
 	}
+`;
+
+export const MyTitle = styled.h2`
+	padding: 20px;
+	font-weight: 700;
 `;
 
 export const Input = styled.input<InputProps>`

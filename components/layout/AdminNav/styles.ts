@@ -4,6 +4,7 @@ export const AdminNavContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: #006989;
 `;
 
 export const Nav = styled.nav``;

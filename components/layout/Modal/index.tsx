@@ -12,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({ text, toggle, setToggle }) => {
 		<ModalContainer display={toggle ? 'block' : 'none'}>
 			<ModalContent>
 				<CloseButton onClick={() => setToggle(false)} />
-				{text}
+				<span>{text}</span>
 			</ModalContent>
 		</ModalContainer>
 	);

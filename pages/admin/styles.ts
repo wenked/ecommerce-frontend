@@ -14,6 +14,7 @@ export const AdminContainer = styled.div`
 	}
 
 	@media (min-width: 960px) {
+		margin: 0 auto;
 		width: 1300px;
 	}
 `;

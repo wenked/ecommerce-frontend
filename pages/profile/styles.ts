@@ -36,7 +36,7 @@ export const ProfileLabel = styled.label`
 	color: #006989;
 	font-weight: bold;
 	font-size: 13px;
-	padding: 10px;
+	padding: 8px;
 `;
 
 export const ProfileInput = styled.div`

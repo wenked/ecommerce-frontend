@@ -1,7 +1,7 @@
 import NavBar from '@components/layout/NavBar';
 import { AuthProvider } from 'context/AuthContext';
 import React from 'react';
-import GlobalStyle from '../styles/global';
+import GlobalStyle from '@styles/global';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryclient = new QueryClient();
