@@ -19,16 +19,21 @@ import { useAuth } from 'context/AuthContext';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useQueryClient } from 'react-query';
+import { useCart } from 'context/CartContext';
 
 const NavBar: React.FC = () => {
 	const [click, setClick] = useState(false);
 	const [button, setButton] = useState(true);
 	const queryclient = useQueryClient();
 	const router = useRouter();
+	const { cartItems } = useCart();
 
 	const { user, loading, error, signed } = useAuth();
 
-	const handleClick = () => setClick(!click);
+	const handleClick = () => {
+		setClick(!click);
+		console.log(cartItems);
+	};
 	const showButton = () => {
 		if (window.innerWidth <= 960) {
 			setButton(false);
@@ -59,6 +64,11 @@ const NavBar: React.FC = () => {
 							<NavItem>
 								<Link href='/' passHref>
 									<NavLinks>Home</NavLinks>
+								</Link>
+							</NavItem>
+							<NavItem>
+								<Link href='/cart' passHref>
+									<NavLinks>Cart</NavLinks>
 								</Link>
 							</NavItem>
 							<NavItem>

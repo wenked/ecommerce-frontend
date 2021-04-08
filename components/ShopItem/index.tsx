@@ -1,4 +1,5 @@
 import { Button } from '@styles/global';
+import { useCart } from 'context/CartContext';
 import React, { useState } from 'react';
 import { cartItemInterface } from 'types/types';
 import {
@@ -9,10 +10,11 @@ import {
 
 interface ShopItemProps {
 	item: cartItemInterface;
-	handleAddToCart: (item: cartItemInterface) => void;
 }
 
-const ShopItem: React.FC<ShopItemProps> = ({ item, handleAddToCart }) => {
+const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
+	const { handleAddToCart } = useCart();
+
 	return (
 		<ShopItemContainer>
 			<ShopItemImg src={item.imgUrl} alt={item.name} />
@@ -26,7 +28,9 @@ const ShopItem: React.FC<ShopItemProps> = ({ item, handleAddToCart }) => {
 					})}
 				</h3>
 			</ShopItemDataContainer>
-			<Button primary>Add to cart</Button>
+			<Button primary onClick={() => handleAddToCart(item)}>
+				Add to cart
+			</Button>
 		</ShopItemContainer>
 	);
 };
