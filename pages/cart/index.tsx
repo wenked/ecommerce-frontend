@@ -1,7 +1,9 @@
 import CartItem from '@components/CartItem';
+import axios from 'axios';
 import { useCart } from 'context/CartContext';
 import React from 'react';
 import { cartItemInterface } from 'types/types';
+import { userIsAuth } from 'utils/userIsAuth';
 import {
 	CartItemsListContainer,
 	CartPageContainer,
@@ -19,7 +21,7 @@ const CartPage: React.FC = () => {
 		getTotalItems,
 		handleAddToCart,
 	} = useCart();
-
+	userIsAuth();
 	console.log(cartItems);
 	return (
 		<CartPageContainer>
@@ -37,13 +39,28 @@ const CartPage: React.FC = () => {
 						);
 					})}
 					<TotalPriceContainer>
-						<div>
+						<div className='items'>
 							<h3>Total:</h3>
 							{calculateTotal(cartItems).toLocaleString('pt-BR', {
 								style: 'currency',
 								currency: 'BRL',
 							})}
 						</div>
+						<button
+							onClick={async () => {
+								axios.defaults.withCredentials = true;
+								if (cartItems.length !== 0) {
+									const res = await axios.post(
+										'http://localhost:3333/removeitem',
+										{
+											cartItems,
+										}
+									);
+									console.log(res.data);
+								}
+							}}>
+							comprar
+						</button>
 					</TotalPriceContainer>
 				</CartItemsListContainer>
 			) : (
