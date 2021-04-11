@@ -76,7 +76,7 @@ const NavBar: React.FC = () => {
 						<NavMenu onClick={handleClick} click={click}>
 							<NavItem>
 								<Link href='/' passHref>
-									<NavLinks>Home TESTE</NavLinks>
+									<NavLinks>Home TESTE2</NavLinks>
 								</Link>
 							</NavItem>
 							<NavItem>
