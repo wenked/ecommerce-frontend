@@ -8,6 +8,7 @@ interface ButtonProps {
 
 interface InputProps {
 	customSize: 'big' | 'small' | 'md';
+	variant: 'primary' | 'secondary';
 }
 
 export default createGlobalStyle`
@@ -66,13 +67,15 @@ export const Button = styled.button<ButtonProps>`
 export const MyTitle = styled.h2`
 	padding: 20px;
 	font-weight: 700;
+	color: #006989;
 `;
 
 export const Input = styled.input<InputProps>`
 	margin: 0.8rem;
 	padding: 0.5rem;
 	border: 0;
-	background: transparent;
+	background: ${({ variant }) =>
+		variant === 'primary' ? 'transparent' : '#F7F9F9'};
 	border-bottom: 1px solid #006989;
 	border-radius: 2px;
 	font-family: 'Roboto', sans-serif;

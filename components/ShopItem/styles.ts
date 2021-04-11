@@ -5,9 +5,10 @@ export const ShopItemContainer = styled.div`
 	justify-content: space-between;
 	flex-direction: column;
 	width: 300px;
-	border: 1px solid lightblue;
+	border-radius: 10px;
 	height: 100%;
 	margin: 20px;
+	box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
 `;
 
 export const ShopItemImg = styled.img`

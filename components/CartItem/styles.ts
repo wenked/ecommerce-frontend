@@ -5,10 +5,17 @@ export const CartItemContainer = styled.div`
 	flex-direction: column;
 	padding: 10px;
 	color: #006989;
-	border: 1px solid #006989;
+	border: 1px solid lightblue;
+	border-radius: 10px;
+	box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
 	margin: 10px;
 	width: 100%;
 	max-width: 900px;
+
+	@media (min-width: 960px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
 `;
 
 export const ItemDetailContainer = styled.div`
@@ -21,8 +28,8 @@ export const ItemDetailContainer = styled.div`
 		flex-direction: row-reverse;
 	}
 	img {
-		width: 50px;
-		height: 50px;
+		width: 150px;
+		height: 150px;
 	}
 `;
 

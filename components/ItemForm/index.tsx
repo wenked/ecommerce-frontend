@@ -48,6 +48,7 @@ const ItemForm: React.FC<ItemFormProps> = ({
 				<ProfileInput>
 					<ProfileLabel>Name</ProfileLabel>
 					<Input
+						variant='primary'
 						required={required}
 						customSize='md'
 						value={name}
@@ -57,6 +58,7 @@ const ItemForm: React.FC<ItemFormProps> = ({
 				<ProfileInput>
 					<ProfileLabel>Description</ProfileLabel>
 					<Input
+						variant='primary'
 						required={required}
 						customSize='md'
 						value={description}
@@ -66,6 +68,7 @@ const ItemForm: React.FC<ItemFormProps> = ({
 				<ProfileInput>
 					<ProfileLabel>Price</ProfileLabel>
 					<Input
+						variant='primary'
 						required={required}
 						customSize='md'
 						type='number'
@@ -76,6 +79,7 @@ const ItemForm: React.FC<ItemFormProps> = ({
 				<ProfileInput>
 					<ProfileLabel>Category</ProfileLabel>
 					<Input
+						variant='primary'
 						required={required}
 						customSize='md'
 						value={category}
@@ -85,6 +89,7 @@ const ItemForm: React.FC<ItemFormProps> = ({
 				<ProfileInput>
 					<ProfileLabel>Img url</ProfileLabel>
 					<Input
+						variant='primary'
 						required={required}
 						customSize='md'
 						value={imgUrl}
@@ -94,6 +99,7 @@ const ItemForm: React.FC<ItemFormProps> = ({
 				<ProfileInput>
 					<ProfileLabel>Inventory</ProfileLabel>
 					<Input
+						variant='primary'
 						required={required}
 						customSize='small'
 						type='number'
