@@ -64,6 +64,7 @@ const SingUp: React.FC = () => {
 					<Label>Sign Up</Label>
 					<InputsContainer>
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='text'
@@ -72,6 +73,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setName(e.target.value)}
 						/>
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='text'
@@ -80,6 +82,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setLastName(e.target.value)}
 						/>
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='text'
@@ -88,6 +91,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<Input
+							variant='primary'
 							customSize='small'
 							required
 							type='date'
@@ -97,6 +101,7 @@ const SingUp: React.FC = () => {
 						/>
 
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='password'
@@ -105,6 +110,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='password'
@@ -125,6 +131,7 @@ const SingUp: React.FC = () => {
 							/>
 						</DropdownBlock>
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='text'
@@ -133,6 +140,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setDistrict(e.target.value)}
 						/>
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='text'
@@ -141,6 +149,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setStreet(e.target.value)}
 						/>
 						<Input
+							variant='primary'
 							required
 							customSize='small'
 							type='number'
@@ -149,6 +158,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setHouseNumber(parseInt(e.target.value))}
 						/>
 						<Input
+							variant='primary'
 							required
 							customSize='small'
 							type='number'
@@ -157,6 +167,7 @@ const SingUp: React.FC = () => {
 							onChange={(e) => setPostalCode(parseInt(e.target.value))}
 						/>
 						<Input
+							variant='primary'
 							required
 							customSize='md'
 							type='text'

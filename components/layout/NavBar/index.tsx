@@ -20,10 +20,13 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useQueryClient } from 'react-query';
 import { useCart } from 'context/CartContext';
+import SearchBar from '../SearchBar';
+import { FormEvent } from 'react';
 
 const NavBar: React.FC = () => {
 	const [click, setClick] = useState(false);
 	const [button, setButton] = useState(true);
+	const [searchInput, setSearchInput] = useState('');
 	const queryclient = useQueryClient();
 	const router = useRouter();
 	const { cartItems } = useCart();
@@ -42,6 +45,10 @@ const NavBar: React.FC = () => {
 		}
 	};
 
+	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault();
+	};
+
 	if (typeof window !== 'undefined') {
 		window.addEventListener('resize', showButton);
 	}
@@ -54,16 +61,22 @@ const NavBar: React.FC = () => {
 						<Link href='/' passHref>
 							<NavLogo>
 								<NavIcon />
-								Ecommerce
+								{!button ? '' : 'Ecommerce'}
 							</NavLogo>
 						</Link>
 						<MobileIcon onClick={handleClick}>
 							{click ? <FaTimes /> : <FaBars />}
 						</MobileIcon>
+						<SearchBar
+							variant='secondary'
+							handleSubmit={handleSubmit}
+							searchInput={searchInput}
+							setSearchInput={setSearchInput}
+						/>
 						<NavMenu onClick={handleClick} click={click}>
 							<NavItem>
 								<Link href='/' passHref>
-									<NavLinks>Home</NavLinks>
+									<NavLinks>Home TESTE</NavLinks>
 								</Link>
 							</NavItem>
 							<NavItem>
@@ -71,11 +84,7 @@ const NavBar: React.FC = () => {
 									<NavLinks>Cart</NavLinks>
 								</Link>
 							</NavItem>
-							<NavItem>
-								<Link href='/smartphones' passHref>
-									<NavLinks>Smartphones</NavLinks>
-								</Link>
-							</NavItem>
+
 							{signed ? (
 								<>
 									<NavItem>

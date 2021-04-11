@@ -51,6 +51,7 @@ const ItemList: React.FC = () => {
 		<AdminContainer>
 			<AdminNav />
 			<SearchBar
+				variant='primary'
 				setSearchInput={setSearchInput}
 				handleSubmit={handleSubmit}
 				searchInput={searchInput}

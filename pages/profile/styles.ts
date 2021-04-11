@@ -6,6 +6,9 @@ export const ProfileContainer = styled.div`
 	width: 320px;
 	margin: 0 auto;
 	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+	padding: 20px;
 
 	h3 {
 		padding: 10px;
@@ -15,7 +18,7 @@ export const ProfileContainer = styled.div`
 	}
 
 	@media (min-width: 960px) {
-		width: 1300px;
+		width: 900px;
 		display: flex;
 		justify-content: center;
 		align-items: center;

@@ -7,7 +7,8 @@ export const LoginContainer = styled.div`
 	align-items: center;
 	padding: 20px;
 	margin: 30px;
-	border: 2px solid #006989;
+	border-radius: 10px;
+	box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
 	@media (min-width: 960px) {
 		display: flex;
 		justify-content: center;

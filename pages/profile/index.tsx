@@ -87,6 +87,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>First Name</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.firstName : firstName}
 							disabled={changeData}
@@ -96,6 +97,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>Last Name</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.lastName : lastname}
 							disabled={changeData}
@@ -105,6 +107,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>Born date</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.bornDate : borndate}
 							disabled={changeData}
@@ -114,6 +117,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>Email</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.email : email}
 							disabled={changeData}
@@ -123,6 +127,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>Street</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.street : street}
 							disabled={changeData}
@@ -132,6 +137,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>House number</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							type='number'
 							value={changeData ? user.houseNumber : housenumber}
@@ -142,6 +148,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>District</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.district : district}
 							disabled={changeData}
@@ -151,6 +158,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>Postal Code</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.postalCode : postalcode}
 							disabled={changeData}
@@ -174,6 +182,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>Img url</ProfileLabel>
 						<Input
+							variant='primary'
 							customSize='md'
 							value={changeData ? user.imgUrl : imgurl}
 							disabled={changeData}
@@ -183,6 +192,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>Old Password</ProfileLabel>
 						<Input
+							variant='primary'
 							type='password'
 							customSize='md'
 							value={oldPassword}
@@ -193,6 +203,7 @@ const ProfilePage: React.FC = () => {
 					<ProfileInput>
 						<ProfileLabel>New Password</ProfileLabel>
 						<Input
+							variant='primary'
 							type='password'
 							customSize='md'
 							value={newPassword}

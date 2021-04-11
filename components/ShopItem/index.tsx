@@ -21,12 +21,12 @@ const ShopItem: React.FC<ShopItemProps> = ({ item }) => {
 			<ShopItemDataContainer>
 				<h3>{item.name}</h3>
 				<p>{item.description}</p>
-				<h3>
+				<h2>
 					{item.price.toLocaleString('pt-BR', {
 						style: 'currency',
 						currency: 'BRL',
 					})}
-				</h3>
+				</h2>
 			</ShopItemDataContainer>
 			<Button primary onClick={() => handleAddToCart(item)}>
 				Add to cart

@@ -7,9 +7,9 @@ export const ItemCardContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 	width: 300px;
-
-	border: 1px solid lightblue;
 	margin: 20px;
+	border-radius: 10px;
+	box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
 `;
 
 export const CardImg = styled.img`

@@ -1,4 +1,5 @@
 import CartItem from '@components/CartItem';
+import { MyTitle } from '@styles/global';
 import axios from 'axios';
 import { useCart } from 'context/CartContext';
 import React from 'react';
@@ -27,7 +28,7 @@ const CartPage: React.FC = () => {
 		<CartPageContainer>
 			{cartItems.length !== 0 ? (
 				<CartItemsListContainer>
-					{' '}
+					<MyTitle>Shopping cart</MyTitle>
 					{cartItems.map((item) => {
 						return (
 							<CartItem
